@@ -11,7 +11,7 @@ SELECT YEAR('2026-06-20'),
        WEEKOFYEAR('2026-06-20'),
        QUARTER('2026-06-20'),
        DAYNAME('2026-06-20'),
-       MONTHNAME('2026-06-20')
+       MONTHNAME('2026-06-20');
 
 --Create a table and run order dayname & order date
 CREATE TABLE orders AS
@@ -21,8 +21,8 @@ FROM (VALUES
     (1002, 102, DATE '2026-05-02'),
     (1003, 103, DATE '2026-05-03'),
     (1004, 104, DATE '2026-05-04'),
-    (1005, 105, DATE '2026-05-05'))
- AS orders(order_id, customer_id, order_date);
+    (1005, 105, DATE '2026-05-05')) 
+    AS t(order_id, customer_id, order_date);
 
 ----Bringing up the table
 SELECT*
@@ -34,7 +34,7 @@ DAYNAME(order_date) AS day_name
 FROM orders;
 
 --Question 2 Create table
-CREATE TABLE customer_signups AS
+CREATE OR REPLACE TABLE customer_signups AS
 SELECT* FROM (VALUES
 (201,'John','2026-01-15'), 
 (202,'Mary','2026-02-20'),
@@ -108,6 +108,8 @@ FROM deliveries
 SELECT delivery_id,customer_id,delivery_date,
 DAY(delivery_date) AS day_of_month
 FROM deliveries
+
+
 
       
 
